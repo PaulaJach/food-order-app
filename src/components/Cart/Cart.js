@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import AUTH_DOMAIN from '../../assets/firebase';
 import Modal from "../UI/Modal";
 import CartItem from "./CartItem";
 import Checkout from "./Checkout";
@@ -29,7 +30,7 @@ const Cart = (props) => {
   const submitOrderHandler = async (userData) => {
     setIsSubmitting(true);
     await fetch(
-      "https://react-http-9bdb9-default-rtdb.firebaseio.com/orders.json",
+      `${AUTH_DOMAIN}/orders.json`,
       {
         method: "POST",
         body: JSON.stringify({
